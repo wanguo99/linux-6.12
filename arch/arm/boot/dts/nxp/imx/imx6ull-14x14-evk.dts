@@ -11,6 +11,10 @@
 	model = "Freescale i.MX6 UltraLiteLite 14x14 EVK Board";
 	compatible = "fsl,imx6ull-14x14-evk", "fsl,imx6ull";
 
+    sound-wm8960 {
+        status = "disabled";
+    };
+
     spi-4 {
         status = "disabled";
     };
@@ -60,4 +64,24 @@
 &ethphy1 {
     compatible = "ethernet-phy-id0007.c0f0";
     smsc,led-mode = <1>;
+};
+
+&can1 {
+	status = "disabled";
+};
+
+&can2 {
+	status = "disabled";
+};
+
+&i2c2 {
+	status = "disabled";
+};
+
+&sai2 {
+	status = "disabled";
+};
+
+&reg_can_3v3 {
+	status = "disabled";
 };
