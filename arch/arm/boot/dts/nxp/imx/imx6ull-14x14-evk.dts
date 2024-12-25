@@ -26,11 +26,6 @@
         pinctrl-0 = <&pinctrl_gpio_leds>;
         gpios = <&gpio1 3 GPIO_ACTIVE_LOW>;
     };
-    
-    led1: pdm-led-gpio@1 {
-        index = <1>;
-        compatible = "led,pdm-device-gpio";
-    };
 };
 
 &clks {
