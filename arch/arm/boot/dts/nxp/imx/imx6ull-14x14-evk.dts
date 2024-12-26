@@ -19,13 +19,23 @@
         status = "disabled";
     };
     
-    led0: pdm-led-gpio@0 {
+    led0: pdm-device-gpio@0 {
         index = <0>;
-        compatible = "led,pdm-device-gpio";
+        compatible = "pdm,device-gpio", "pdm,led-gpio";
         pinctrl-names = "default";
         pinctrl-0 = <&pinctrl_gpio_leds>;
-        gpio = <&gpio1 3 GPIO_ACTIVE_LOW>;
+        gpios = <&gpio1 3 GPIO_ACTIVE_HIGH>;
 		default-state = "on";
+		status = "okay";
+    };
+
+    led1: pdm-device-pwm@0 {
+        index = <0>;
+        compatible = "pdm,device-pwm", "pdm,led-pwm";
+		pwms = <&pwm1 0 5000000 0>;
+		levels = <0 1 2 3 4 5 6 7 8 9>;
+		default-level = <5>;
+		status = "okay";
     };
 };
 
