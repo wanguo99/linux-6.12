@@ -114,3 +114,22 @@
 	status = "disabled";
 };
 
+&i2c3 {
+	status = "okay";
+	eeprom0: pdm-device-i2c@0 {
+		reg = <0>;
+		compatible = "pdm,device-i2c", "pdm,eeprom-i2c";
+		status = "okay";
+	};
+};
+
+&ecspi1 {
+	status = "okay";
+	dmas = <>;
+	dma-names = "";
+	eeprom1: pdm-device-spi@0 {
+		reg = <0>;
+		compatible = "pdm,device-spi", "pdm,eeprom-spi";
+		status = "okay";
+	};
+};
