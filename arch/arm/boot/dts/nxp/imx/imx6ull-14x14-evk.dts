@@ -24,7 +24,8 @@
         compatible = "led,pdm-device-gpio";
         pinctrl-names = "default";
         pinctrl-0 = <&pinctrl_gpio_leds>;
-        gpios = <&gpio1 3 GPIO_ACTIVE_LOW>;
+        gpio = <&gpio1 3 GPIO_ACTIVE_LOW>;
+		default-state = "on";
     };
 };
 
