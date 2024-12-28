@@ -19,9 +19,9 @@
         status = "disabled";
     };
     
-    led0: pdm-device-gpio@0 {
+    led0: pdmdev-gpio@0 {
         index = <0>;
-        compatible = "pdm,device-gpio", "pdm,led-gpio";
+        compatible = "pdm-device-gpio", "pdm-led-gpio";
         pinctrl-names = "default";
         pinctrl-0 = <&pinctrl_gpio_leds>;
         gpios = <&gpio1 3 GPIO_ACTIVE_HIGH>;
@@ -29,9 +29,9 @@
 		status = "okay";
     };
 
-    led1: pdm-device-pwm@0 {
+    led1: pdmdev-pwm@0 {
         index = <0>;
-        compatible = "pdm,device-pwm", "pdm,led-pwm";
+        compatible = "pdm-device-pwm", "pdm-led-pwm";
 		pwms = <&pwm1 0 5000000 0>;
 		levels = <0 1 2 3 4 5 6 7 8 9>;
 		default-level = <5>;
@@ -116,9 +116,9 @@
 
 &i2c3 {
 	status = "okay";
-	eeprom0: pdm-device-i2c@0 {
+	nvmem0: pdmdev-i2c@0 {
 		reg = <0>;
-		compatible = "pdm,device-i2c", "pdm,eeprom-i2c";
+		compatible = "pdm-device-i2c", "pdm-nvmem-i2c";
 		status = "okay";
 	};
 };
@@ -127,9 +127,9 @@
 	status = "okay";
 	dmas = <>;
 	dma-names = "";
-	eeprom1: pdm-device-spi@0 {
+	nvmem1: pdmdev-spi@0 {
 		reg = <0>;
-		compatible = "pdm,device-spi", "pdm,eeprom-spi";
+		compatible = "pdm-device-spi", "pdm-nvmem-spi";
 		status = "okay";
 	};
 };
