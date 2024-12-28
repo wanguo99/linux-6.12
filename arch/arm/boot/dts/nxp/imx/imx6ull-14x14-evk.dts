@@ -116,8 +116,8 @@
 
 &i2c3 {
 	status = "okay";
-	nvmem0: pdmdev-i2c@0 {
-		reg = <0>;
+	nvmem0: pdmdev-i2c@c {
+		reg = <0xc>;
 		compatible = "pdm-device-i2c", "pdm-nvmem-i2c";
 		status = "okay";
 	};
