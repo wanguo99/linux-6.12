@@ -21,20 +21,20 @@
     
     led0: pdmdev-gpio@0 {
         index = <0>;
-        compatible = "pdm-device-gpio", "pdm-led-gpio";
+        compatible = "pdm-device-gpio", "pdm-switch-gpio";
         pinctrl-names = "default";
         pinctrl-0 = <&pinctrl_gpio_leds>;
         gpios = <&gpio1 3 GPIO_ACTIVE_HIGH>;
-		default-state = "on";
+		default-state = "off";
 		status = "okay";
     };
 
     led1: pdmdev-pwm@0 {
         index = <0>;
-        compatible = "pdm-device-pwm", "pdm-led-pwm";
+        compatible = "pdm-device-pwm", "pdm-dimmer-pwm";
 		pwms = <&pwm1 0 5000000 0>;
-		levels = <0 1 2 3 4 5 6 7 8 9>;
-		default-level = <5>;
+		level-map = <0 15 30 45 70 85 100 130 180 250>;
+		default-level = <0>;
 		status = "okay";
     };
 };
@@ -130,6 +130,6 @@
 	nvmem1: pdmdev-spi@0 {
 		reg = <0>;
 		compatible = "pdm-device-spi", "pdm-nvmem-spi";
-		status = "okay";
+		status = "disabled";
 	};
 };
