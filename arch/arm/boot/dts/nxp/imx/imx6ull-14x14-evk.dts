@@ -28,6 +28,16 @@
 		default-state = "off";
 		status = "okay";
     };
+    
+    beeper0: pdmdev-gpio@1 {
+        index = <1>;
+        compatible = "pdm-device-gpio", "pdm-switch-gpio";
+        pinctrl-names = "default";
+        pinctrl-0 = <&pinctrl_gpio_beeper>;
+        gpios = <&gpio5 1 GPIO_ACTIVE_HIGH>;
+		default-state = "off";
+		status = "okay";
+    };
 
     led1: pdmdev-pwm@0 {
         index = <0>;
@@ -60,6 +70,12 @@
     pinctrl_gpio_leds: gpio-leds {
         fsl,pins = <
             MX6UL_PAD_GPIO1_IO03__GPIO1_IO03	0x17059
+        >;
+    };
+
+    pinctrl_gpio_beeper: gpio-beepers {
+        fsl,pins = <
+            MX6UL_PAD_SNVS_TAMPER1__GPIO5_IO01	0x10B0
         >;
     };
 };
